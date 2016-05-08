@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/Inevio/magallanes-cli#readme",
   "dependencies": {
+    "chalk": "^1.1.3",
+    "table": "^3.7.8",
     "vertigo": "0.0.6"
   }
 }
