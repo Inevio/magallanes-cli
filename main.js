@@ -5,7 +5,7 @@
 var vertigo = require('vertigo');
 
 // Create client
-var client = vertigo.createClient( 21041 );
+var client = vertigo.createClient({ host : 'magallanes-server', port : 21041 });
 
 // Variables
 var REGEXP = require('./regexp');
@@ -16,7 +16,7 @@ console.log('');
 
 switch ( true ){
 
-  case REGEXP.nodes.test( args ) : require('./cmd/nodes')( client, argv ); break;
+  case REGEXP.nodes.test( args ) : require('./cmd/nodes')( client, argv ); break; //✅
   case REGEXP.nodeByName.test( args ) : require('./cmd/nodeByName')( client, argv ); break;
   case REGEXP.nodeByIP.test( args ) : require('./cmd/nodeByIP')( client, argv ); break;
   case REGEXP.addNode.test( args ) : require('./cmd/addNode')( client, argv ); break;
