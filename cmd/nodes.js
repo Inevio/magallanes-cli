@@ -44,7 +44,11 @@ module.exports = function( client, argv ){
       });
 
       item.containers.forEach( function( item ){
-        res.push( [ '  ' + item.Names[ 0 ].replace( /^\//, '' ), item.Id.slice( 0, 12 ), item.State === 'running' ? 'ON' : 'OFF' ] );
+
+        if( process.env.HOSTNAME !== item.Id.slice( 0, 12 ) ){
+          res.push( [ '  ' + item.Names[ 0 ].replace( /^\//, '' ), item.Id.slice( 0, 12 ), item.State === 'running' ? 'ON' : 'OFF' ] );
+        }
+
       });
 
       res.forEach( function( item ){
